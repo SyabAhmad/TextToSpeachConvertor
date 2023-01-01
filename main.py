@@ -4,7 +4,7 @@ import pyttsx3
 file = "TTS.txt"
 
 book = open(file, 'rb')
-PdfReader = PyPDF3.PDFReader(book)
+pdfReader = PyPDF3.PDFReader(book)
 pages = pdfReader.numPages
 finaltxt = ""
 with pdfplumber.open(file) as dpf:
@@ -15,6 +15,11 @@ with pdfplumber.open(file) as dpf:
 
 
         engine = pyttsx3.init()
+        engine.save_to_file(finaltxt, "TTS.mp3")
+
         engine.runAndWait()
+
+
+
 
 
